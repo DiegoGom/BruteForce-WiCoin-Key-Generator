@@ -7,10 +7,12 @@
 
 	//Parametro que indica que es valida la llave
 	$valida="\"Estatus\":true";
-
+	$texto1='"FechaFinal":""';
+	$contador=0;
 	//contador de caracteres totales
 	$limite=count($array);
 
+		echo "Combinaciones probadas: ";
 		for($a=0;$a<$limite;$a++){
 			
 			for($b=0;$b<$limite;$b++){
@@ -26,10 +28,15 @@
 
 							$resultado= explode(",", $gen);
 
-							if($resultado[1]==$valida){
+							if($resultado[1]==$valida && $resultado[2]==$texto1){
 								
-
-								system("echo clave ".$llave." de ".$resultado[5]."  >> llaves.txt");
+								echo $contador=$contador+1;
+								echo " ,";
+								system("echo clave ".$llave." de ".$resultado[6]."  >> llaves.txt");
+								echo "se encontro llave=".$llave.", ";
+							}else{
+								echo $contador=$contador+1;
+								echo " ,";
 							}
 						}
 					}
